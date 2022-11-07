@@ -1,4 +1,4 @@
-# JTL EXPRESS REST API V2
+# Admin Template
 
 Framework : Laravel v8.83.26
 
