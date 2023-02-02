@@ -6,6 +6,7 @@ use App\Http\Requests\Users\EditUserRequest;
 use App\Http\Requests\Users\UserRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -16,6 +17,9 @@ class UserController extends Controller
      */
     public function index()
     {
+        if (Auth::user()->roles == 'author' || Auth::user()->roles == 'Author') {
+            return redirect('/dashboard');
+        }
         $users = User::all();
         return view('users.index', compact('users'));
     }
@@ -27,6 +31,10 @@ class UserController extends Controller
      */
     public function create()
     {
+        if (Auth::user()->roles == 'author' || Auth::user()->roles == 'Author') {
+            return redirect('/dashboard');
+        }
+
         return view('users.create');
     }
 
@@ -51,6 +59,10 @@ class UserController extends Controller
      */
     public function show($id)
     {
+        if (Auth::user()->roles == 'author' || Auth::user()->roles == 'Author') {
+            return redirect('/dashboard');
+        }
+
         $user = User::find($id);
 
         return view('users.show', compact('user'));
@@ -64,6 +76,10 @@ class UserController extends Controller
      */
     public function edit($id)
     {
+        if (Auth::user()->roles == 'author' || Auth::user()->roles == 'Author') {
+            return redirect('/dashboard');
+        }
+
         $user = User::find($id);
 
         return view('users.edit', compact('user'));

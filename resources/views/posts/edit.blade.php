@@ -5,12 +5,12 @@
                 <div class="p-3">
                     <div class="space-y-4">
                         <div>
-                            <p class="text-4xl dark:text-gray-100">Users</p>
+                            <p class="text-4xl dark:text-gray-100">Posts</p>
                         </div>
 
                         <div class="flex flex-col bg-white dark:bg-gray-800 p-4 rounded-lg space-y-4">
                             <div>
-                                <p class="text-xl dark:text-gray-100">Edit User</p>
+                                <p class="text-xl dark:text-gray-100">Edit Posts</p>
                             </div>
                             <hr>
 
@@ -26,60 +26,33 @@
                             @endif
 
                             <form method="POST" enctype="multipart/form-data"
-                                action="{{ route('users.update', $user->id) }}">
+                                action="{{ route('posts.update', $post->id) }}">
                                 @csrf
                                 @method('PUT')
-                                <!-- Name -->
+                                <!-- title -->
                                 <div>
                                     <x-label class="dark:text-gray-100" for="name" :value="__('Name')" />
 
                                     <x-input id="id"
                                         class="block mt-1 w-full dark:bg-gray-700 dark:text-gray-100" type="hidden"
-                                        name="id" :value="$user->id ?? old('id')" required />
+                                        name="id" :value="$post->id ?? old('id')" required />
 
-                                    <x-input id="name"
+                                    <x-input id="title"
                                         class="block mt-1 w-full dark:bg-gray-700 dark:text-gray-100" type="text"
-                                        name="name" :value="$user->name ?? old('name')" required autofocus />
+                                        name="title" :value="$post->title ?? old('title')" required autofocus />
                                 </div>
 
-                                <!-- Username -->
+                                <!-- Content -->
                                 <div class="mt-4">
-                                    <x-label class="dark:text-gray-100" for="username" :value="__('Username')" />
+                                    <x-label class="dark:text-gray-100" for="content" :value="__('Content')" />
 
-                                    <x-input id="username"
+                                    <x-input id="content"
                                         class="block mt-1 w-full dark:bg-gray-700 dark:text-gray-100" type="text"
-                                        name="username" :value="$user->username ?? old('username')" required />
-                                </div>
-
-                                <!-- Roles -->
-                                <div class="mt-4">
-                                    <x-label class="dark:text-gray-100" for="roles" :value="__('Roles')" />
-
-                                    <x-input id="roles"
-                                        class="block mt-1 w-full dark:bg-gray-700 dark:text-gray-100" type="text"
-                                        name="roles" :value="$user->roles ?? old('roles')" required />
-                                </div>
-
-                                <!-- Password -->
-                                <div class="mt-4">
-                                    <x-label class="dark:text-gray-100" for="password" :value="__('Password')" />
-
-                                    <x-input id="password"
-                                        class="block mt-1 w-full dark:bg-gray-700 dark:text-gray-100" type="password"
-                                        name="password" autocomplete="new-password" />
-                                </div>
-
-                                <!-- Confirm Password -->
-                                <div class="mt-4">
-                                    <x-label class="dark:text-gray-100" for="password_confirmation" :value="__('Confirm Password')" />
-
-                                    <x-input id="password_confirmation"
-                                        class="block mt-1 w-full dark:bg-gray-700 dark:text-gray-100" type="password"
-                                        name="password_confirmation" />
+                                        name="content" :value="$post->content ?? old('content')" required />
                                 </div>
 
                                 <div class="mt-4 flex justify-between">
-                                    <a href="{{ route('users.index') }}"
+                                    <a href="{{ route('posts.index') }}"
                                         class="flex items-center rounded-lg p-2 bg-blue-500 text-white hover:bg-blue-300">Back</a>
                                     <button type="submit"
                                         class="flex items-center rounded-lg p-2 bg-blue-500 text-white hover:bg-blue-300">Submit</button>

@@ -26,7 +26,8 @@ class UserRequest extends FormRequest
     {
         return [
             'name'     => 'required|string',
-            'email'    => 'required|email|unique:users,email',
+            'username' => 'required|string|unique:users',
+            'roles'    => 'required|string',
             'password' => 'required|min:8|same:password_confirmation',
         ];
     }
@@ -35,7 +36,8 @@ class UserRequest extends FormRequest
     {
         $data = [
             'name' => $this->name,
-            'email' => $this->email,
+            'username' => $this->username,
+            'roles' => $this->roles,
             'password' => Hash::make($this->password),
         ];
 

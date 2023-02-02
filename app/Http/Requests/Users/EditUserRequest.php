@@ -26,7 +26,8 @@ class EditUserRequest extends FormRequest
     {
         $rules = [
             'name'     => 'required|string',
-            'email'    => 'required|email|unique:users,email,' . $this->id,
+            'username' => 'required|string|unique:users,username,' . $this->id,
+            'roles'    => 'required|string',
 
         ];
 
@@ -40,8 +41,9 @@ class EditUserRequest extends FormRequest
     public function getEditedUser()
     {
         $data = [
-            'name' => $this->name,
-            'email' => $this->email,
+            'name'     => $this->name,
+            'username' => $this->username,
+            'roles'    => $this->roles,
         ];
 
         if (!empty($this->password)) {

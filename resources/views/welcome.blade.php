@@ -424,7 +424,13 @@
 
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <p class="text-lg dark:text-white">WELCOME</p>
+                    {{-- <p class="text-lg dark:text-white">WELCOME</p> --}}
+
+                    @foreach ($posts as $post)
+                        <div class="text-lg dark:text-white">{{ $post->title }}</div>
+                        <div class="text-xl dark:text-white">{{ $post->content }}</div>
+                        <div class="text-sm dark:text-white">{{ $post->user->name }}</div>
+                    @endforeach
                 </div>
             </div>
         @endif

@@ -31,6 +31,11 @@
                     Users
                 </x-side-nav-link>
             </li>
+            <li>
+                <x-side-nav-link class="dark:text-gray-100" href="{{ route('posts.index') }}" :active="request()->routeIs('posts.*')">
+                    Posts
+                </x-side-nav-link>
+            </li>
         </ul>
     </nav>
 </aside>

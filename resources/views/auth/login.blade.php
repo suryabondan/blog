@@ -17,10 +17,10 @@
 
             <!-- Email Address -->
             <div>
-                <x-label class="dark:text-gray-100" for="email" :value="__('Email')" />
+                <x-label class="dark:text-gray-100" for="username" :value="__('Username')" />
 
-                <x-input id="email" class="block mt-1 w-full dark:bg-gray-700 dark:text-gray-100" type="email"
-                    name="email" :value="old('email')" required autofocus />
+                <x-input id="username" class="block mt-1 w-full dark:bg-gray-700 dark:text-gray-100" type="text"
+                    name="username" :value="old('username')" required autofocus />
             </div>
 
             <!-- Password -->

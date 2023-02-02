@@ -5,32 +5,29 @@
                 <div class="p-3">
                     <div class="space-y-4">
                         <div>
-                            <p class="text-4xl dark:text-gray-100">Users</p>
+                            <p class="text-4xl dark:text-gray-100">Posts</p>
                         </div>
 
                         <div class="flex flex-col bg-white dark:bg-gray-800 p-4 rounded-lg space-y-4">
                             <div>
-                                <p class="text-xl dark:text-gray-100">Show User</p>
+                                <p class="text-xl dark:text-gray-100">Show Post</p>
                             </div>
                             <hr>
 
                             <div class="flex flex-col dark:text-gray-100">
                                 <div>
-                                    <p>Name : {{ $user->name }}</p>
+                                    <p>Title : {{ $post->title }}</p>
                                 </div>
                                 <div>
-                                    <p>Username : {{ $user->username }}</p>
+                                    <p>Content : {{ $post->content }}</p>
                                 </div>
                                 <div>
-                                    <p>Roles : {{ $user->roles }}</p>
-                                </div>
-                                <div>
-                                    <p>Created Date : {{ date('Y-m-d', strtotime($user->created_at)) }}</p>
+                                    <p>Created Date : {{ date('Y-m-d', strtotime($post->created_at)) }}</p>
                                 </div>
                             </div>
 
                             <div class="mt-4 flex justify-between">
-                                <a href="{{ route('users.index') }}"
+                                <a href="{{ route('posts.index') }}"
                                     class="flex items-center rounded-lg p-2 bg-blue-500 text-white hover:bg-blue-300">Back</a>
                             </div>
                         </div>

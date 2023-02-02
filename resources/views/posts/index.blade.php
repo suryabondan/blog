@@ -5,7 +5,7 @@
                 <div class="p-3">
                     <div class="space-y-4">
                         <div>
-                            <p class="text-4xl dark:text-gray-100">Users</p>
+                            <p class="text-4xl dark:text-gray-100">Posts</p>
                         </div>
 
                         <div class="flex flex-col bg-white dark:bg-gray-800 p-4 rounded-lg space-y-4">
@@ -30,38 +30,38 @@
 
                             <div class="flex">
                                 <a class="flex items-center rounded-lg p-2 bg-blue-500 text-white hover:bg-blue-300"
-                                    href="{{ route('users.create') }}">Create New User</a>
+                                    href="{{ route('posts.create') }}">Create New Posts</a>
                             </div>
                             <div class="overflow-y-auto relative">
                                 <table class="w-full text-left table-auto dark:text-gray-100">
                                     <thead class="uppercase bg-gray-100 dark:bg-gray-700">
                                         <tr>
                                             <th scope="col" class="py-3 px-6">No</th>
-                                            <th scope="col" class="py-3 px-6">Name</th>
-                                            <th scope="col" class="py-3 px-6">Username</th>
-                                            <th scope="col" class="py-3 px-6">Roles</th>
+                                            <th scope="col" class="py-3 px-6">Title</th>
+                                            <th scope="col" class="py-3 px-6">Content</th>
+                                            <th scope="col" class="py-3 px-6">Author</th>
                                             <th scope="col" class="py-3 px-6">Created Date</th>
                                             <th scope="col" class="py-3 px-6">Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($users as $user)
+                                        @foreach ($posts as $post)
                                             <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                                                 <td scope="row" class="py-4 px-6">{{ $loop->iteration }}</td>
-                                                <td scope="row" class="py-4 px-6">{{ $user->name }}</td>
-                                                <td scope="row" class="py-4 px-6">{{ $user->username }}</td>
-                                                <td scope="row" class="py-4 px-6">{{ $user->roles }}</td>
+                                                <td scope="row" class="py-4 px-6">{{ $post->title }}</td>
+                                                <td scope="row" class="py-4 px-6">{{ $post->content }}</td>
+                                                <td scope="row" class="py-4 px-6">{{ $post->user->name }}</td>
                                                 <td scope="row" class="py-4 px-6">
-                                                    {{ date('Y-m-d', strtotime($user->created_at)) }}</td>
+                                                    {{ date('Y-m-d', strtotime($post->created_at)) }}</td>
                                                 <td scope="row" class="py-4 px-6">
                                                     <div class="flex justify-center space-x-2">
                                                         <a class="flex items-center rounded-lg p-2 bg-cyan-500 text-white hover:bg-cyan-300"
-                                                            href="{{ route('users.show', $user->id) }}">show</a>
+                                                            href="{{ route('posts.show', $post->id) }}">show</a>
                                                         <a class="flex items-center rounded-lg p-2 bg-green-500 text-white hover:bg-green-300"
-                                                            href="{{ route('users.edit', $user->id) }}">update</a>
+                                                            href="{{ route('posts.edit', $post->id) }}">update</a>
                                                         <button type="button"
-                                                            class="deleteUser flex items-center rounded-lg p-2 bg-red-500 text-white hover:bg-red-300"
-                                                            value="{{ $user->id }}">delete</button>
+                                                            class="deletePost flex items-center rounded-lg p-2 bg-red-500 text-white hover:bg-red-300"
+                                                            value="{{ $post->id }}">delete</button>
                                                     </div>
                                                 </td>
                                             </tr>
@@ -78,9 +78,9 @@
 
     <script>
         $(document).ready(function() {
-            $(document).on('click', '.deleteUser', function() {
+            $(document).on('click', '.deletePost', function() {
                 var id = $(this).val();
-                var link = 'users/';
+                var link = 'posts/';
                 deleteData(link, id);
             });
         });

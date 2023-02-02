@@ -36,13 +36,20 @@
                                         name="name" :value="old('name')" required autofocus />
                                 </div>
 
-                                <!-- Email Address -->
+                                <!-- Username -->
                                 <div class="mt-4">
-                                    <x-label class="dark:text-gray-100" for="email" :value="__('Email')" />
+                                    <x-label class="dark:text-gray-100" for="username" :value="__('Username')" />
 
-                                    <x-input id="email"
-                                        class="block mt-1 w-full dark:bg-gray-700 dark:text-gray-100" type="email"
-                                        name="email" :value="old('email')" required />
+                                    <x-input id="username" class="block mt-1 w-full dark:bg-gray-700 dark:text-gray-100" type="text"
+                                        name="username" :value="old('username')" required />
+                                </div>
+
+                                <!-- Roles -->
+                                <div class="mt-4">
+                                    <x-label class="dark:text-gray-100" for="roles" :value="__('Roles')" />
+
+                                    <x-input id="roles" class="block mt-1 w-full dark:bg-gray-700 dark:text-gray-100" type="text"
+                                        name="roles" :value="old('roles')" required />
                                 </div>
 
                                 <!-- Password -->
